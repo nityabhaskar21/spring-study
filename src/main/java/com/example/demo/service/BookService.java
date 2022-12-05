@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,11 @@ public class BookService {
 						.publisher(bookCreateRequest.getBookProperties().get("publisher")).build())
 				.build();
 		return bookRepo.saveBook(book);
+	}
+	
+	public List<Book> getBookNameList() {
+		var books = bookRepo.getBookNameList();
+		return books;
 	}
 
 }
