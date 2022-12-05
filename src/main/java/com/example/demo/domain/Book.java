@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -18,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Document(collection = "books")
 @Builder
-@JsonInclude(Include.NON_NULL) //only include non-null fiels in the result.
+@JsonInclude(Include.NON_NULL) //only include non-null fields in the result.
 public class Book {
 
       @Id
@@ -29,4 +31,5 @@ public class Book {
       private Double cost;
       @Field(name = "properties")
       private BookProperties properties;
+      private List<String> tags;
 }

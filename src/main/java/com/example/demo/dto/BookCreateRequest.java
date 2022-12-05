@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.NotEmpty;
@@ -22,4 +23,5 @@ public class BookCreateRequest {
 	private Double cost;
 	@JsonProperty("properties")
 	private Map<String, String> bookProperties;
+	private List<String> tags;
 }

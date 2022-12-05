@@ -20,13 +20,13 @@ public class BookService {
 
 	public Book saveBook(@Valid BookCreateRequest bookCreateRequest) {
 		var book = Book.builder().name(bookCreateRequest.getName()).author(bookCreateRequest.getAuthor())
-				.cost(bookCreateRequest.getCost()).pages(bookCreateRequest.getPages())
+				.tags(bookCreateRequest.getTags()).cost(bookCreateRequest.getCost()).pages(bookCreateRequest.getPages())
 				.properties(BookProperties.builder().genre(bookCreateRequest.getBookProperties().get("genre"))
 						.publisher(bookCreateRequest.getBookProperties().get("publisher")).build())
 				.build();
 		return bookRepo.saveBook(book);
 	}
-	
+
 	public List<Book> getBookNameList() {
 		var books = bookRepo.getBookNameList();
 		return books;
